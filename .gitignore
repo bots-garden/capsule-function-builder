@@ -1,0 +1,8 @@
+tmp
+.DS_Store
+dump.rdb
+*.wasm
+node_modules
+.cache
+.parcel-cache
+package-lock.json
