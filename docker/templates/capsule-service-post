@@ -15,6 +15,12 @@ func main() {
 	hf.SetHandleHttp(Handle)
 }
 
+/*
+curl -v -X POST http://localhost:8080 \
+  -H 'content-type: text/plain' \
+  -d 'Bob'
+*/
+
 func Handle(req hf.Request) (resp hf.Response, errResp error) {
 
 	hf.Log("📝 Body: " + request.Body)
