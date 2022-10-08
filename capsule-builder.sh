@@ -1,8 +1,10 @@
 #!/bin/bash
+CAPSULE_BUILDER_VERSION="v0.0.1"
+IMAGE_TAG="0.0.1"
 
 if [ -z "$IMAGE_NAME" ]
 then
-  IMAGE_NAME="k33g/capsule-builder:0.0.0"
+  IMAGE_NAME="k33g/capsule-builder:${IMAGE_TAG}"
 fi
 # you can override the image
 # ex: IMAGE_NAME="capsule-builder" capsule templates

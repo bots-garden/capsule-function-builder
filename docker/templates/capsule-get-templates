@@ -2,7 +2,8 @@
 
 read -r -d '' TEMPLATES << EOM
 - cli (a function callable from the terminal)
-- service-get (HTTP service)
+- service-get (HTTP service, GET REQUEST)
+- service-post (HTTP service, POST request)
 EOM
 
 echo "${TEMPLATES}" 
