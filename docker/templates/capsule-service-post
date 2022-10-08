@@ -9,35 +9,40 @@ package main
 
 import (
 	hf "github.com/bots-garden/capsule/capsulemodule/hostfunctions"
+	/* string to json */
+	"github.com/tidwall/gjson"
+	/* create json string */
+	"github.com/tidwall/sjson"
 )
 
 func main() {
 	hf.SetHandleHttp(Handle)
 }
 
-/*
-curl -v -X POST http://localhost:8080 \
-  -H 'content-type: text/plain' \
-  -d 'Bob'
-*/
-
-func Handle(req hf.Request) (resp hf.Response, errResp error) {
+func Handle(request hf.Request) (response hf.Response, errResp error) {
 
 	hf.Log("📝 Body: " + request.Body)
 	hf.Log("📝 URI: " + request.Uri)
 	hf.Log("📝 Method: " + request.Method)
 
-	headers := map[string]string{
-		"Content-Type": "text/plain; charset=utf-8",
+	name := gjson.Get(request.Body, "name")
+	
+	headersResp := map[string]string{
+		"Content-Type": "application/json; charset=utf-8",
 	}
 
-	resp = hf.Response{
-		Body: "👋 hello " + request.Body,
-		Headers: headers,
-	}
+	jsondoc := `{"message": ""}`
+	jsondoc, _ = sjson.Set(jsondoc, "message", "👋 hello " + name.Str)
 
-	return resp , nil
+	return hf.Response{Body: jsondoc, Headers: headersResp}, nil
 }
+
+/*
+curl -v -X POST \
+  http://localhost:8080 \
+  -H 'content-type: application/json' \
+  -d '{"name": "Bob"}'
+*/
 EOM
 
 echo "${SOURCE}" >> "${function_name}.go"
