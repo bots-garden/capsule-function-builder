@@ -1,9 +1,8 @@
-name: Publish
+name: Release Capsule Builder script
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [created]
 
 jobs:
   build:
