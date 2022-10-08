@@ -1,0 +1,9 @@
+#!/bin/bash
+
+read -r -d '' TEMPLATES << EOM
+- cli (a function callable from the terminal)
+- service-get (HTTP service)
+EOM
+
+echo "${TEMPLATES}" 
+

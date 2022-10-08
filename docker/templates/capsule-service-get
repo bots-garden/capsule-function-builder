@@ -1,16 +1,14 @@
+#!/bin/bash
+function_name=$1
+
+mkdir ${function_name}
+cd ${function_name}
+
+read -r -d '' SOURCE << EOM
 package main
 
-// TinyGo wasm module
 import (
-	_ "embed"
-	"strings"
-
 	hf "github.com/bots-garden/capsule/capsulemodule/hostfunctions"
-)
-
-var (
-	//go:embed resources/index.html
-	html []byte
 )
 
 func main() {
@@ -18,15 +16,28 @@ func main() {
 }
 
 func Handle(req hf.Request) (resp hf.Response, errResp error) {
-	message, _ := hf.GetEnv("MESSAGE")
 
 	headers := map[string]string{
 		"Content-Type": "text/html; charset=utf-8",
 	}
 	resp = hf.Response{
-		Body: strings.Replace(string(html), "{{message}}", message, -1),
+		Body: "<h1>👋 hello world 🌍</h1>",
 		Headers: headers,
 	}
 
 	return resp , nil
 }
+EOM
+
+echo "${SOURCE}" >> "${function_name}.go"
+
+read -r -d '' MODULE << EOM
+module ${function_name}
+
+go 1.18
+EOM
+
+echo "${MODULE}" >> go.mod
+
+#go get -u ./...
+#go mod tidy

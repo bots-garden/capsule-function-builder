@@ -1,0 +1,36 @@
+#!/bin/bash
+function_name=$1
+
+mkdir ${function_name}
+cd ${function_name}
+
+read -r -d '' SOURCE << EOM
+package main
+
+import (
+	hf "github.com/bots-garden/capsule/capsulemodule/hostfunctions"
+)
+
+func main() {
+	hf.Log("🚀 ignition...")
+}
+
+func Handle(params []string) (string, error) {
+
+	return "👋 hello world 🌍", nil
+}
+EOM
+
+echo "${SOURCE}" >> "${function_name}.go"
+
+read -r -d '' MODULE << EOM
+module ${function_name}
+
+go 1.18
+EOM
+
+echo "${MODULE}" >> go.mod
+
+
+#go get -u ./...
+#go mod tidy

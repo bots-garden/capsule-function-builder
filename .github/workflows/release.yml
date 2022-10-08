@@ -1,0 +1,22 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: Publish Capsule Builder script
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Upload the script to the release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: capsule-builder.sh
+        asset_name: capsule-builder
+        tag: ${{ github.ref }}
+        overwrite: true

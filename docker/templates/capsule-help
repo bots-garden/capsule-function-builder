@@ -1,0 +1,30 @@
+#!/bin/bash
+
+read -r -d '' HELP << EOM
+# Capsule builder help
+
+## Generate a function project from a template
+
+> generate a CLI function:
+capsule-builder generate cli hello-world
+or: cabu generate cli hello-world
+
+> generate an HTTP service:
+capsule-builder generate service-get hello-world
+or: cabu generate service-get hello-world
+
+## Get the template list
+
+capsule-builder templates
+or: cabu templates
+
+## Build the wasm function
+
+> change directory to the function directory, then type:
+capsule-builder build . index.go index.wasm
+or: cabu build . index.go index.wasm
+
+EOM
+
+echo "${HELP}" 
+
