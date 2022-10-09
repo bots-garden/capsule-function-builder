@@ -1,6 +1,6 @@
 #!/bin/bash
-CAPSULE_BUILDER_VERSION="v0.0.1"
-IMAGE_TAG="0.0.1"
+CAPSULE_BUILDER_VERSION="v0.0.2"
+IMAGE_TAG="0.0.2"
 
 if [ -z "$IMAGE_NAME" ]
 then

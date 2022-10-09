@@ -1,5 +1,5 @@
 #!/bin/bash
-CAPSULE_BUILDER_VERSION="v0.0.1"
+CAPSULE_BUILDER_VERSION="v0.0.2"
 
 if [ -z "$CAPSULE_BUILDER_PATH" ]
 then
