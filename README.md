@@ -1,4 +1,4 @@
-# Capsule Function Builder
+# Capsule Function Builder (CaBu)
 
 ## Install Capsule Builder
 
