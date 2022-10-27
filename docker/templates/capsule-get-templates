@@ -3,6 +3,7 @@
 read -r -d '' TEMPLATES << EOM
 - cli (a function callable from the terminal)
 - service-get (HTTP service, GET REQUEST)
+- simple-service-post (HTTP service, POST request)
 - service-post (HTTP service, POST request)
 EOM
 

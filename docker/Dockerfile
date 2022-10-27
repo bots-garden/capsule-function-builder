@@ -1,4 +1,4 @@
-FROM tinygo/tinygo:0.24.0
+FROM tinygo/tinygo:0.25.0
 
 WORKDIR /home
 
