@@ -3,7 +3,7 @@
 ## Install Capsule Builder
 
 ```bash
-CAPSULE_BUILDER_VERSION="v0.0.3"
+CAPSULE_BUILDER_VERSION="v0.0.4"
 wget -O - https://raw.githubusercontent.com/bots-garden/capsule-function-builder/${CAPSULE_BUILDER_VERSION}/install-capsule-builder.sh | bash
 ```
 
@@ -22,7 +22,7 @@ wget -O - https://raw.githubusercontent.com/bots-garden/capsule-function-builder
 or
 
 ```bash
-CAPSULE_BUILDER_VERSION="v0.0.3"
+CAPSULE_BUILDER_VERSION="v0.0.4"
 wget https://github.com/bots-garden/capsule-function-builder/releases/download/${CAPSULE_BUILDER_VERSION}/install-capsule-builder.sh
 
 chmod +x install-capsule-builder.sh
